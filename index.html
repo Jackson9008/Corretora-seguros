@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="JKS Seguros - Consultoria em seguros pessoais, empresariais e patrimoniais." />
+  <meta name="keywords" content="seguros, automóvel, casa, saúde, empresa" />
+  <title>JKS Seguros</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#">Para Você</a></li>
+        <li><a href="#">Para Sua Empresa</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+  </header>
+
+  <section class="carrossel">
+  <div class="slides">
+    <img src="img/carro-amarelo.jpg" alt="Slide 1" class="active" />
+    <img src="img/casa-luxo.jpg" alt="Slide 2" />
+    <img src="img/frota-caminhoes.jpg" alt="Slide 3" />
+  </div>
+  <button class="prev" onclick="mudarSlide(-1)">❮</button>
+  <button class="next" onclick="mudarSlide(1)">❯</button>
+</section>
+
+<section class="sobre-nos">
+  <h1>Nosso legado</h1>
+  <p>
+    Com anos de atuação no mercado, a <strong>JKS Corretora de Seguros</strong> construiu um legado de sucesso baseado na confiança, na ética e no compromisso com seus clientes. Atuamos com excelência em <strong>seguros pessoais, empresariais e patrimoniais</strong>, sempre oferecendo soluções sob medida para cada necessidade.
+    <br><br>
+    <strong>Missão:</strong> Proporcionar segurança e tranquilidade por meio de produtos e serviços de alta qualidade, com atendimento personalizado e consultoria especializada.
+    <br>
+    <strong>Visão:</strong> Ser referência no mercado de seguros, reconhecida pelo profissionalismo, inovação e pelo relacionamento duradouro com nossos clientes.
+  </p>
+</section>
+
+
+  <section class="hero">
+    <div>
+      <h1>SEGURO AUTOMÓVEL</h1>
+      <button>Fale Conosco</button>
+    </div>
+  </section>
+
+  <section class="sobre-nos">
+  <h2>Sobre nós</h2>
+  <p>
+    Ao longo de sua trajetória, a <strong>JKS Corretora de Seguros</strong> se consolidou como uma empresa confiável e comprometida com a proteção de vidas, negócios e patrimônios.
+    <br><br>
+    Atuamos com excelência na consultoria e gestão de <strong>seguros pessoais, empresariais e patrimoniais</strong>, oferecendo soluções eficazes e alinhadas às necessidades de cada cliente.
+    <br>
+    Com foco na qualidade, na transparência e na construção de relações duradouras, buscamos continuamente <strong>superar expectativas e ser referência no setor de seguros</strong>.
+  </p>
+</section>
+
+
+  <section class="produtos">
+    <h2>Produtos para você</h2>
+    <div class="grid">
+      <div class="item"><img src="img/carro.jpg" alt="Carro" /></div>
+      <div class="item"><img src="img/casa.jpg" alt="Casa" /></div>
+      <div class="item"><img src="img/moto.jpg" alt="Moto" /></div>
+    </div>
+  </section>
+
+  <section class="produtos">
+    <h2>Produtos para sua empresa</h2>
+    <div class="grid">
+      <div class="item"><img src="img/empresa.jpg" alt="Empresa" /></div>
+      <div class="item"><img src="img/saúde.jpg" alt="Saúde" /></div>
+      <div class="item"><img src="img/frota-carros.jpg" alt="Frota" /></div>
+    </div>
+  </section>
+
+  <section class="contato">
+    <h2>Contatos</h2>
+    <form>
+      <input type="text" placeholder="Nome" />
+      <input type="email" placeholder="E-mail" />
+      <input type="text" placeholder="Telefone" />
+      <textarea placeholder="Mensagem"></textarea>
+      <button type="submit">ENVIAR</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© Seguros JKS 2025 | Desenvolvido por Jackson</p>
+  </footer>
+  <a href="https://wa.me/5511961149524" class="whatsapp" target="_blank" aria-label="WhatsApp">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+</a>
+
+<script>
+  function toggleMenu() {
+    const menu = document.querySelector('nav ul');
+    menu.classList.toggle('show');
+  }
+</script>
+
+<script>
+  let slideAtual = 0;
+  const slides = document.querySelectorAll('.carrossel .slides img');
+
+  function mostrarSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) slide.classList.add('active');
+    });
+  }
+
+  function mudarSlide(direcao) {
+    slideAtual += direcao;
+    if (slideAtual >= slides.length) slideAtual = 0;
+    if (slideAtual < 0) slideAtual = slides.length - 1;
+    mostrarSlide(slideAtual);
+  }
+
+  // Troca automática a cada 5s
+  setInterval(() => mudarSlide(1), 5000);
+
+  // Mostrar o primeiro ao carregar
+  mostrarSlide(slideAtual);
+</script>
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+</body>
+</html>
